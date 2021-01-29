@@ -1,3 +1,4 @@
+// const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -8,7 +9,8 @@ const fs = require('fs');
 // const OUTPUT_DIR = path.resolve(_dirname, "output");
 // const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const generator = require("index");
+const generateTeam = require("./index");
+// const writeHTML = require('./index');
 
 const team = [];
 addtoTeam();
@@ -37,7 +39,8 @@ function addtoTeam(){
             internInfo();
         }
         else if (employeeRole === "Finish"){
-            renderTeam();
+            generateTeam();
+            // writeHTML();
         }
     })
 };

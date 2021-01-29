@@ -1,7 +1,7 @@
 {
-  "name": "02-Homework",
+  "name": "src",
   "version": "1.0.0",
-  "description": "## Your Task",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^7.3.3",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "path": "^0.12.7"
   }
 }

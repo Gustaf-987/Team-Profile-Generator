@@ -1,6 +1,8 @@
-const inquirer = require('inquirer');
+// const inquirer = require('inquirer');
 const fs = require('fs');
+// const path = require("path");
 
+// const templatesDir = path.resolve(_dirname,"output")
 
 // create the team
 const generateTeam = team => {
@@ -120,3 +122,11 @@ module.exports = team => {
 </html>
     `;
 };
+
+function writeToFile(team, data){
+    fs.writeToFile(team, data), (err) =>{
+        if (err) throw err;
+
+        console.log("HTML created");
+    }
+}
