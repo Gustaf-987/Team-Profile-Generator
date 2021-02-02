@@ -49,11 +49,11 @@ function managerInfo(){
         name: "managerName",
         message: "Manager's Name:",
     },
-    {
-        type: "input",
-        name: "managerRole",
-        message: "Manager's Role:",
-    },
+    // {
+    //     type: "input",
+    //     name: "managerRole",
+    //     message: "Manager's Role:",
+    // },
     {
         type: "input",
         name: "managerId",
@@ -71,7 +71,7 @@ function managerInfo(){
     },
 
     ]).then(function(data){
-        const manager = new Manager(data.managerName, data.managerRole, data.managerId, data.managerEmail, data.managerOfficeNumber);
+        const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOfficeNumber);
         team.push(manager);
         addtoTeam();
     });
