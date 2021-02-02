@@ -1,8 +1,6 @@
 // const inquirer = require('inquirer');
-const fs = require('fs');
-// const path = require("path");
+// const fs = require('fs');
 
-// const templatesDir = path.resolve(_dirname,"output")
 
 // create the team
 const generateTeam = team => {
@@ -18,8 +16,8 @@ const generateTeam = team => {
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">ID: ${manager.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
     </div>
@@ -55,7 +53,7 @@ const generateTeam = team => {
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: {{ id }}</li>
+            <li class="list-group-item">ID: ${intern.getId()}</li>
             <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
             <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
@@ -122,11 +120,3 @@ module.exports = team => {
 </html>
     `;
 };
-
-function writeToFile(team, data){
-    fs.writeToFile(team, data), (err) =>{
-        if (err) throw err;
-
-        console.log("HTML created");
-    }
-}

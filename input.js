@@ -1,16 +1,12 @@
-// const Employee = require("./lib/Employee");
+const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-// const path = require("path");
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// const OUTPUT_DIR = path.resolve(_dirname, "output");
-// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const generateTeam = require("./index");
-// const writeHTML = require('./index');
+const Team = require("./index");
 
 const team = [];
 addtoTeam();
@@ -39,8 +35,9 @@ function addtoTeam(){
             internInfo();
         }
         else if (employeeRole === "Finish"){
+            
             generateTeam();
-            // writeHTML();
+            
         }
     })
 };
@@ -69,12 +66,12 @@ function managerInfo(){
     },
     {
         type: "input",
-        name: "managerGithub",
-        message: "Manager's Github:",
+        name: "managerOfficeNumber",
+        message: "Manager's Office Number:",
     },
 
     ]).then(function(data){
-        const manager = new Manager(data.managerName, data.managerRole, data.managerId, data.managerEmail, data.managerGithub);
+        const manager = new Manager(data.managerName, data.managerRole, data.managerId, data.managerEmail, data.managerOfficeNumber);
         team.push(manager);
         addtoTeam();
     });
@@ -87,11 +84,11 @@ function engineerInfo(){
         name: "engineerName",
         message: "Engineer's Name:",
     },
-    {
-        type: "input",
-        name: "engineerRole",
-        message: "Engineer's Role:",
-    },
+    // {
+    //     type: "input",
+    //     name: "engineerRole",
+    //     message: "Engineer's Role:",
+    // },
     {
         type: "input",
         name: "engineerId",
@@ -109,7 +106,7 @@ function engineerInfo(){
     },
 
     ]).then(function(data){
-        const engineer = new Engineer(data.engineerName, data.engineerRole, data.engineerId, data.engineerEmail, data.engineerGithub);
+        const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
         team.push(engineer);
         addtoTeam();
     });
@@ -144,3 +141,16 @@ function internInfo(){
         addtoTeam();
     });
 };
+
+function generateTeam(data){
+    if(!fs.existsSync(__dirname + "/output")){
+        fs.mkdirSync(__dirname + "/output");
+    }
+
+    if(!fs.existsSync(__dirname + "/output" + `${data}/`)){
+        fs.mkdirSync(__dirname + "/output/" + `${data}`);
+    }
+
+    fs.writeFileSync(__dirname + "/output/" + `${data}/` +'index.html', Team(team), 
+    (err) => err ? console.log(err) : console.log('Success'));
+}

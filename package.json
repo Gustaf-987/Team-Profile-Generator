@@ -1,13 +1,13 @@
 {
-  "name": "src",
+  "name": "name",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "input.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -- verbose test/*"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gustaf",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^7.3.3",
